@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="fizzBuzzApp">
+  <head>
+    <title>Angular FizzBuzz</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="./fizzBuzzApp.js"></script>
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
+  </head>
+  <body ng-controller="FizzBuzzController" ng-init="update()">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        <h1>Angular FizzBuzz</h1>
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+    </header>
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--3-col">
+          <label for="fromNumber">Starting number:</label>
+          <input class="mdl-textfield__input" id="fromNumber" type="text" ng-model="fromNumber" ng-change="update()" placeholder="Enter a number here" />
+      </div>
+      <div class="mdl-cell mdl-cell--3-col">
+        <label for="toNumber">Ending number:</label>
+        <input class="mdl-textfield__input" id="toNumber" type="text" ng-model="toNumber" ng-change="update()" placeholder="Enter a number here">
+      </div>
+      <div class="mdl-cell mdl-cell--3-col">
+        <label for="fizzNumber">Fizz number:</label>
+        <input class="mdl-textfield__input" id="fizzNumber" type="text" ng-model="fizzNumber" placeholder="Enter a number here">
+      </div>
+      <div class="mdl-cell mdl-cell--3-col">
+        <label for="buzzNumber">Buzz number:</label>
+        <input class="mdl-textfield__input" id="buzzNumber" type="text" ng-model="buzzNumber" placeholder="Enter a number here">
+      </div>
+    </div>
+  </section>
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+<div class="mdl-card mdl-cell mdl-cell--12-col">
+      <div class="mdl-card__supporting-text">
+        <div ng-repeat="n in numbersList">
+            <span ng-show="(n%fizzNumber!==0)&&(n%buzzNumber!==0)">{{n}}</span>
+            <span ng-show="n%fizzNumber===0">Fizz</span>
+            <span ng-show="n%buzzNumber===0">Buzz</span>
+        </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>
